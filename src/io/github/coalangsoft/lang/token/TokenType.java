@@ -11,7 +11,7 @@ public enum TokenType {
 	STRING_MARK("\""),
 	ROUND_BRACKET_OPEN("\\("), ROUND_BRACKET_CLOSE("\\)"),
 	BRACKET_OPEN("\\{"), BRACKET_CLOSE("\\}"), BACKSLASH("\\\\"), 
-	SQUARE_BRACKET_OPEN("\\["), SQUARE_BRACKET_CLOSE("\\]");
+	SQUARE_BRACKET_OPEN("\\["), SQUARE_BRACKET_CLOSE("\\]"), DOT("\\.");
 	
 	private Pattern pattern;
 

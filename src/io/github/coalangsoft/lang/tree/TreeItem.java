@@ -2,6 +2,7 @@ package io.github.coalangsoft.lang.tree;
 
 import io.github.coalangsoft.lang.context.CompileContext;
 import io.github.coalangsoft.lang.token.Token;
+import io.github.coalangsoft.lang.token.TokenSequence;
 import io.github.coalangsoft.lib.data.Func;
 import io.github.coalangsoft.lib.data.ImutablePair;
 import io.github.coalangsoft.lib.data.Pair;
@@ -31,8 +32,8 @@ public class TreeItem extends ModifiableSequence<TreeItem>{
 		return this;
 	}
 	
-	public List<Token> getTokens(){
-		return tokens;
+	public TokenSequence getTokens(){
+		return new TokenSequence(tokens.toArray(new Token[0]));
 	}
 
 	public TreeItemType getType() {
