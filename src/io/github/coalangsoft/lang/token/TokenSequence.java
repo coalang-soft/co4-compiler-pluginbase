@@ -1,18 +1,11 @@
 package io.github.coalangsoft.lang.token;
 
-import io.github.coalangsoft.lib.data.Func;
-import io.github.coalangsoft.lib.sequence.BaseSequence;
+import io.github.coalangsoft.lib.sequence.basic.BasicSequence;
 
-public class TokenSequence extends BaseSequence<Token>{
+public class TokenSequence extends BasicSequence<Token>{
 
 	public TokenSequence(Token[] values) {
-		super(makeTool(new Func<Integer, Token[]>() {
-
-			public Token[] call(Integer p) {
-				return new Token[p];
-			}
-			
-		}), values);
+		super(Token.class, values);
 	}
 
 	public TokenTypeSequence getTypes() {

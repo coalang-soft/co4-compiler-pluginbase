@@ -6,23 +6,17 @@ import io.github.coalangsoft.lang.token.TokenSequence;
 import io.github.coalangsoft.lib.data.Func;
 import io.github.coalangsoft.lib.data.ImutablePair;
 import io.github.coalangsoft.lib.data.Pair;
-import io.github.coalangsoft.lib.sequence.ModifiableSequence;
-
+import io.github.coalangsoft.lib.sequence.basic.BasicModifiableSequence;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TreeItem extends ModifiableSequence<TreeItem>{
+public class TreeItem extends BasicModifiableSequence<TreeItem>{
 	
 	private ArrayList<Token> tokens;
 	private TreeItemType type;
 	
 	public TreeItem(TreeItemType type){
-		super(makeTool(new Func<Integer, TreeItem[]>() {
-
-			public TreeItem[] call(Integer p) {
-				return new TreeItem[p];
-			}
-		}), new TreeItem[0]);
+		super(TreeItem.class);
 		tokens = new ArrayList<Token>();
 		this.type = type;
 	}

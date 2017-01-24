@@ -12,7 +12,8 @@ public class CompileContext {
 	private List<CompileSystem> compileSystems;
 	private CompileSystem lastSystem;
 	private Class<? extends CompileSystem> required;
-	private Object hint;
+	private String hint;
+	private String lastHint;
 	
 	public void addCompileSystem(CompileSystem s){
 		compileSystems.add(s);
@@ -24,15 +25,17 @@ public class CompileContext {
 		return compileSystems.get(i);
 	}
 	public void enterSystem(CompileSystem s) throws StateUpdateException {
-		System.out.println(required);
+//		System.out.println(required);
 		if(required != null){
 			if(!required.isInstance(s)){
 				throw new StateUpdateException("Required system " + required.getName());
 			}
 		}
+		required = null;
 	}
 	public void exitSystem(CompileSystem s){
 		this.lastSystem = s;
+		this.lastHint = hint;
 		this.hint = null;
 	}
 	public CompileSystem getLastSystem(){
@@ -41,11 +44,11 @@ public class CompileContext {
 	public void requireNext(Class<? extends CompileSystem> clss) {
 		this.required = clss;
 	}
-	public void sendHint(Object hint) {
+	public void sendHint(String hint) {
 		this.hint = hint;
 	}
-	public Object getHint(){
-		return hint;
+	public String getHint(){
+		return lastHint;
 	}
 	
 }

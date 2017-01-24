@@ -1,18 +1,11 @@
 package io.github.coalangsoft.lang.tree;
 
-import io.github.coalangsoft.lib.data.Func;
-import io.github.coalangsoft.lib.sequence.BaseSequence;
+import io.github.coalangsoft.lib.sequence.basic.BasicSequence;
 
-public class TreeItemTypeSequence extends BaseSequence<TreeItemType>{
+public class TreeItemTypeSequence extends BasicSequence<TreeItemType>{
 
 	public TreeItemTypeSequence(TreeItemType[] values) {
-		super(makeTool(new Func<Integer, TreeItemType[]>() {
-
-			public TreeItemType[] call(Integer p) {
-				return new TreeItemType[p];
-			}
-			
-		}), values);
+		super(TreeItemType.class, values);
 	}
 
 }
