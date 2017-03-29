@@ -7,13 +7,13 @@ public class CompileContext {
 	
 	public CompileContext(){
 		compileSystems = new ArrayList<CompileSystem>();
+		hints = new ArrayList<String>();
 	}
 	
 	private List<CompileSystem> compileSystems;
 	private CompileSystem lastSystem;
 	private Class<? extends CompileSystem> required;
-	private String hint;
-	private String lastHint;
+	private ArrayList<String> hints;
 	
 	public void addCompileSystem(CompileSystem s){
 		compileSystems.add(s);
@@ -35,8 +35,6 @@ public class CompileContext {
 	}
 	public void exitSystem(CompileSystem s){
 		this.lastSystem = s;
-		this.lastHint = hint;
-		this.hint = null;
 	}
 	public CompileSystem getLastSystem(){
 		return lastSystem;
@@ -45,10 +43,10 @@ public class CompileContext {
 		this.required = clss;
 	}
 	public void sendHint(String hint) {
-		this.hint = hint;
+		this.hints.add(hint);
 	}
-	public String getHint(){
-		return lastHint;
+	public boolean hasHint(String s){
+		return hints.remove(s);
 	}
 	
 }

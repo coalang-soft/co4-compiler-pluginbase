@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public enum TokenType {
 	
-	SPECIAL,
+	SPECIAL, EQUALS("="),
 	SEPERATOR("\\s"), SEMICOLON(";"), COMMA(","),
 	NAME("[a-zA-Z\\_][a-zA-Z0-9\\_]*"),
 	NUMBER("[0-9]+"),

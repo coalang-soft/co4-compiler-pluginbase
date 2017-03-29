@@ -1,6 +1,5 @@
 package io.github.coalangsoft.lang.token;
 
-import io.github.coalangsoft.lib.data.Func;
 import io.github.coalangsoft.lib.sequence.basic.BasicSequence;
 
 public class TokenTypeSequence extends BasicSequence<TokenType> {
