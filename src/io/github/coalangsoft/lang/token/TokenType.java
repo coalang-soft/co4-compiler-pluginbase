@@ -6,7 +6,7 @@ public enum TokenType {
 	
 	SPECIAL, EQUALS("="),
 	SEPERATOR("\\s"), SEMICOLON(";"), COMMA(","),
-	NAME("[a-zA-Z\\_][a-zA-Z0-9\\_]*"),
+	NAME("[a-zA-Z\\_@][a-zA-Z0-9\\_@]*"),
 	NUMBER("[0-9]+"),
 	STRING_MARK("\""),
 	ROUND_BRACKET_OPEN("\\("), ROUND_BRACKET_CLOSE("\\)"),
